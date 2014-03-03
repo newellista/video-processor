@@ -13,6 +13,13 @@ describe VideoProcessor do
     end
   end
 
+  describe "#create_output_directories" do
+    it "creates directory tree in output directory" do
+      vp = VideoProcessor.new
+      vp.create_directories('./spec/video_directories', '~/videos').should == ["mkdir -p '~/videos/1'", "mkdir -p '~/videos/1/2'", "mkdir -p '~/videos/Dir with Spaces'"]
+    end
+  end
+
   describe "#extract_directory_and_filename" do
     vp = VideoProcessor.new
     vp.extract_directory_and_filename("./spec/videos/2006.02.20_14-92-22.dv").should == ["videos", "2006.02.20_14-92-22.dv"]

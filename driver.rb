@@ -25,6 +25,8 @@ optparse.parse!
 
 vp = VideoProcessor.new
 
+vp.create_directories(options[:input_directory], options[:output_directory]).each { |d| puts "#{d}" }
+
 files = vp.get_files(options[:input_directory])
 
 files.each do |f|

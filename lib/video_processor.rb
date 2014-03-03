@@ -3,6 +3,10 @@ class VideoProcessor
     Dir.glob("#{directory}/**/*.#{extension}")
   end
 
+  def create_directories(input_directory, output_directory)
+    dirs = Dir.glob("#{input_directory}/**/*").select { |f| File.directory? f}.map { |d| "mkdir -p '#{d.gsub(/#{input_directory}/, "#{output_directory}")}'" }
+  end
+
   def extract_base_filename(filename)
     dir, f = extract_directory_and_filename(filename)
     f.split('.dv').first
