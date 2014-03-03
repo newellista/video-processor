@@ -19,6 +19,6 @@ class VideoProcessor
   def create_encode_command(output_directory, input_filename)
     base_filename = extract_base_filename(input_filename)
 
-    "HandBrakeCLI --preset='AppleTV 3' -i #{input_filename} -o #{output_directory}/#{base_filename}.mp4"
+    "HandBrakeCLI --preset='AppleTV 3' -i '#{input_filename}' -o '#{output_directory}/#{base_filename}.mp4'"
   end
 end

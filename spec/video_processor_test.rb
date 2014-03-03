@@ -31,7 +31,7 @@ describe VideoProcessor do
       input_filename = './spec/videos/capture2006.02.20_14-41-17.dv'
 
       vp = VideoProcessor.new
-      vp.create_encode_command(output_directory, input_filename).should == "HandBrakeCLI --preset='AppleTV 3' -i ./spec/videos/capture2006.02.20_14-41-17.dv -o ~/Videos/3/capture2006.02.20_14-41-17.mp4"
+      vp.create_encode_command(output_directory, input_filename).should == "HandBrakeCLI --preset='AppleTV 3' -i './spec/videos/capture2006.02.20_14-41-17.dv' -o '~/Videos/3/capture2006.02.20_14-41-17.mp4'"
     end
   end
 end
